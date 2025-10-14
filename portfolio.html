@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nikitha Sri Garapati | Portfolio</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --primary:#2563eb;--primary-dark:#1e40af;--secondary:#10b981;
+      --dark:#1f2937;--light:#f9fafb;--gray:#6b7280;--border:#e5e7eb
+    }
+    body{font-family:Segoe UI,system-ui,-apple-system,sans-serif;color:var(--dark);background:var(--light);line-height:1.6}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    /* nav */
+    nav{background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1);position:sticky;top:0;z-index:100}
+    nav .container{display:flex;justify-content:space-between;align-items:center;padding:1rem 20px}
+    nav .logo{font-size:1.5rem;font-weight:700;color:var(--primary)}
+    nav ul{display:flex;list-style:none;gap:2rem}
+    nav a{text-decoration:none;color:var(--dark);font-weight:500;transition:color .2s}
+    nav a:hover{color:var(--primary)}
+
+    /* hero */
+    .hero{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;text-align:center;padding:6rem 0}
+    .hero h1{font-size:3rem;margin-bottom:.75rem}
+    .hero .subtitle{font-size:1.35rem;margin-bottom:.75rem;opacity:.95}
+    .hero p{max-width:760px;margin:0 auto 1.75rem;opacity:.9}
+    .hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:8px;padding:.875rem 2rem;text-decoration:none;font-weight:600;transition:all .2s}
+    .btn-primary{background:#fff;color:var(--primary)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.15)}
+    .btn-outline{color:#fff;border:2px solid #fff}
+    .btn-outline:hover{background:#fff;color:var(--primary)}
+
+    /* sections */
+    section{padding:4rem 0}
+    .section-title{font-size:2.25rem;text-align:center;margin-bottom:2.25rem}
+    .section-title::after{content:"";display:block;width:64px;height:4px;background:var(--primary);margin:1rem auto 0;border-radius:2px}
+
+    /* skills */
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+    .skill-category{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:1.75rem}
+    .skill-category h3{color:var(--primary);margin-bottom:.75rem}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+    .skill-tag{background:var(--light);border:1px solid var(--border);border-radius:999px;padding:.45rem 1rem;font-size:.92rem}
+
+    /* experience */
+    .timeline{display:grid;gap:1rem}
+    .xp{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:1.25rem 1.5rem}
+    .xp h4{margin-bottom:.25rem}
+    .xp .meta{color:var(--gray);font-size:.95rem;margin-bottom:.5rem}
+    .xp ul{margin-left:1rem;display:grid;gap:.35rem}
+    .xp li{list-style:disc}
+
+    /* projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}
+    .project-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:transform .2s}
+    .project-card:hover{transform:translateY(-4px)}
+    .project-header{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:1.25rem}
+    .project-header h3{font-size:1.2rem}
+    .project-body{padding:1.25rem}
+    .project-tech{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0}
+    .tech-badge{background:var(--primary);color:#fff;border-radius:12px;padding:.25rem .6rem;font-size:.85rem}
+    .project-links{display:flex;gap:.75rem;margin-top:.75rem}
+    .project-link{border:2px solid var(--primary);color:var(--primary);padding:.45rem .9rem;border-radius:8px;text-decoration:none;font-weight:600}
+    .project-link:hover{background:var(--primary);color:#fff}
+
+    /* contact & footer */
+    .contact-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+    .contact-card{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:1.25rem;text-align:center}
+    .contact-card a{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-weight:700}
+    .contact-card svg{width:22px;height:22px}
+    footer{background:var(--dark);color:#fff;text-align:center;padding:1.5rem 0}
+    .social{display:flex;justify-content:center;gap:1.25rem;margin-bottom:.5rem}
+    .social a{color:#fff;font-size:0}
+    .social svg{width:24px;height:24px;fill:#fff;transition:opacity .2s}
+    .social svg:hover{opacity:.8}
+
+    @media (max-width:768px){
+      .hero h1{font-size:2rem}
+      .hero .subtitle{font-size:1.1rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- nav -->
+  <nav>
+    <div class="container">
+      <div class="logo">NG</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Hi 👋 I'm Nikitha Sri Garapati</h1>
+      <div class="subtitle">Software Engineer • Full-Stack Developer • AI Enthusiast</div>
+      <p>I build end-to-end web applications with Java, Spring Boot, Node.js, React, and Python—focused on scalable, user-centric solutions.</p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-outline" href="#contact">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- skills (3 tiles) -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>🎨 Front-End</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">JavaScript (ES6+)</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">Bootstrap</span>
+            <span class="skill-tag">Tailwind</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>⚙️ Back-End</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Java • Spring Boot/MVC/Security</span>
+            <span class="skill-tag">Node.js • Express.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">RESTful & Event-driven APIs</span>
+            <span class="skill-tag">Microservices</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>🧰 Tools & Cloud</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">AWS • Azure</span>
+            <span class="skill-tag">Git • GitHub • CI/CD (Jenkins, Actions)</span>
+            <span class="skill-tag">Docker • Linux</span>
+            <span class="skill-tag">Kafka</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- experience -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+
+        <div class="xp">
+          <h4>Software Developer — AAA Insurance</h4>
+          <div class="meta">Remote, USA · Jun 2024 – Present</div>
+          <ul>
+            <li>Built Spring Boot microservices for quotes & claims; reduced API latency by 25% and improved user satisfaction.</li>
+            <li>Designed REST & event-driven APIs in Java/Node.js with 99.9% uptime across policy systems.</li>
+            <li>Optimized React modules (HTML5/CSS3/Bootstrap/JS), cutting load time by 30% and boosting accessibility.</li>
+            <li>Tuned PostgreSQL & schemas; used MongoDB for unstructured policy docs.</li>
+            <li>Implemented CI/CD on AWS (Jenkins, GitHub Actions) and mentored interns on automation; 40% fewer regression defects.</li>
+          </ul>
+        </div>
+
+        <div class="xp">
+          <h4>Software Engineer — Schneider Electric</h4>
+          <div class="meta">Chennai, India · Jan 2023 – Dec 2023</div>
+          <ul>
+            <li>Developed industrial automation modules in Java; improved data flow by 35% across real-time control systems.</li>
+            <li>Built dashboards in Angular/React for live metrics with zero downtime.</li>
+            <li>Integrated REST/WebSocket telemetry; +20% throughput within latency budgets.</li>
+            <li>Automated testing & deployments (Jenkins/GitLab CI), moving from monthly to biweekly releases.</li>
+          </ul>
+        </div>
+
+        <div class="xp">
+          <h4>Junior Java Developer — Bank of America</h4>
+          <div class="meta">Remote, India · Jun 2021 – May 2022</div>
+          <ul>
+            <li>Contributed to Spring MVC & REST services powering thousands of daily transactions.</li>
+            <li>Improved SQL performance (−20% query time) and helped automate unit/integration tests (−30% manual effort).</li>
+            <li>Supported CI/CD and refactoring, reducing incident tickets by 18% in six months.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+
+      <div class="projects-grid">
+        <!-- keep original first two cards -->
+        <div class="project-card">
+          <div class="project-header"><h3>🛒 ShopZone — E-Commerce Platform</h3><p>MERN shopping app</p></div>
+          <div class="project-body">
+            <p>JWT auth, inventory, Stripe payments, admin analytics, responsive UI; Redis caching for speed.</p>
+            <div class="project-tech">
+              <span class="tech-badge">React</span><span class="tech-badge">Node.js</span><span class="tech-badge">Express</span>
+              <span class="tech-badge">MongoDB</span><span class="tech-badge">Redux</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" target="_blank" href="https://github.com/nikithasri-168/shopzone-ecommerce">📂 View Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header"><h3>📋 TaskFlow — Project Management</h3><p>Real-time Kanban with microservices</p></div>
+          <div class="project-body">
+            <p>Spring Boot microservices, RBAC, WebSocket notifications, Dockerized services, React UI.</p>
+            <div class="project-tech">
+              <span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">React</span>
+              <span class="tech-badge">PostgreSQL</span><span class="tech-badge">Docker</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" target="_blank" href="https://github.com/nikithasri-168/taskflow-management">📂 View Code</a>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="project-card">
+          <div class="project-header"><h3>🤖 AI-Powered Software Engineering Quiz Bot</h3><p>Adaptive learning with ML/NLP</p></div>
+          <div class="project-body">
+            <p>TensorFlow + Dialogflow bot that generates intelligent questions, analyzes answers, and adapts difficulty with instant feedback.</p>
+            <div class="project-tech">
+              <span class="tech-badge">TensorFlow</span><span class="tech-badge">Dialogflow</span>
+              <span class="tech-badge">Python</span><span class="tech-badge">NLP</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" target="_blank" href="https://github.com/nikithasri-168/GenAI_QuizBot">📂 View Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header"><h3>📈 Real-Time Twitter Trend Analysis (Big Data)</h3><p>Hadoop & MapReduce pipelines</p></div>
+          <div class="project-body">
+            <p>Processes large Twitter datasets to extract trends; optimized MapReduce (−40% runtime) with scalable pipelines and visual insights.</p>
+            <div class="project-tech">
+              <span class="tech-badge">Hadoop</span><span class="tech-badge">MapReduce</span>
+              <span class="tech-badge">PySpark</span><span class="tech-badge">SQL</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" target="_blank" href="https://github.com/nikithasri-168/BigData_Project">📂 View Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header"><h3>🩺 TeleMedicine Application</h3><p>Video consults & notifications</p></div>
+          <div class="project-body">
+            <p>Node.js backend, TiDB Cloud (MySQL), Firebase auth/storage, Agora video SDK, Railway hosting; JUnit-tested APIs.</p>
+            <div class="project-tech">
+              <span class="tech-badge">Node.js</span><span class="tech-badge">MySQL</span>
+              <span class="tech-badge">Firebase</span><span class="tech-badge">Agora</span>
+              <span class="tech-badge">Android</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" target="_blank" href="https://github.com/nikithasri-168">📂 View Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header"><h3>🎓 EduCentral</h3><p>Campus info for new students</p></div>
+          <div class="project-body">
+            <p>Android app with Firebase Auth & Firestore, dynamic XML layouts, and GitHub-driven collaboration; +50% engagement uplift.</p>
+            <div class="project-tech">
+              <span class="tech-badge">Android</span><span class="tech-badge">Firebase</span>
+              <span class="tech-badge">Kotlin/Java</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" target="_blank" href="https://github.com/nikithasri-168/EduCentral">📂 View Code</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-cards">
+
+        <div class="contact-card">
+          <a href="https://github.com/nikithasri-168" target="_blank" aria-label="GitHub">
+            <!-- GitHub icon -->
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.41-1.34-1.78-1.34-1.78-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.24 1.83 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.34-5.46-5.96 0-1.32.47-2.38 1.24-3.22-.12-.3-.54-1.51.12-3.15 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.85.12 3.15.77.84 1.24 1.9 1.24 3.22 0 4.63-2.8 5.66-5.47 5.96.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"/></svg>
+            <span>github.com/nikithasri-168</span>
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <a href="https://www.linkedin.com/in/nikithagarapati/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <!-- LinkedIn icon -->
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4zM8 8.5h3.8v2h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V23h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-1.99 1.35-1.99 2.75V23H8V8.5z"/></svg>
+            <span>linkedin</span>
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <a href="mailto:nikithagarapati168@gmail.com" aria-label="Email">
+            <!-- Mail icon -->
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.01L12 13 22 6.01V6H2zm20 12V8.24l-9.4 6.6a1 1 0 0 1-1.2 0L2 8.24V18h20z"/></svg>
+            <span>nikithagarapati168@gmail.com</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <div class="social">
+      <a href="https://github.com/nikithasri-168" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.41-1.34-1.78-1.34-1.78-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.24 1.83 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.34-5.46-5.96 0-1.32.47-2.38 1.24-3.22-.12-.3-.54-1.51.12-3.15 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.85.12 3.15.77.84 1.24 1.9 1.24 3.22 0 4.63-2.8 5.66-5.47 5.96.43.37.81 1.1.81 2.22v3.29"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/nikithagarapati/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4zM8 8.5h3.8v2h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V23h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-1.99 1.35-1.99 2.75V23H8V8.5z"/></svg>
+      </a>
+      <a href="mailto:nikithagarapati168@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.01L12 13 22 6.01V6H2zm20 12V8.24l-9.4 6.6a1 1 0 0 1-1.2 0L2 8.24V18h20z"/></svg>
+      </a>
+    </div>
+    <div>© 2025 Nikitha Sri Garapati</div>
+  </footer>
+
+</body>
+</html>
